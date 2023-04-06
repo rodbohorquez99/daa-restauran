@@ -1,0 +1,22 @@
+:host{
+    color:rgb(255, 255, 255) ;
+}
+
+#bg-image{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/pexels-joe-l-2788792.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(50, 50, 50);
+    background-blend-mode: multiply;
+    z-index:-1 ;
+
+}
+
+.spacer{
+    flex: 1 1 auto;
+  }

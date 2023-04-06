@@ -1,0 +1,17 @@
+:host{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+h1{
+    font-size: 5rem;
+}
+
+button{
+    margin: 20px
+}
