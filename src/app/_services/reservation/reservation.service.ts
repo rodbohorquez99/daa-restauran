@@ -22,4 +22,8 @@ export class ReservationService {
   getReservations(): Reservation[]{
     return this.reservations;
   }
+
+  deleteReservation(){
+    alert('Boton de borrado activado');
+  }
 }
