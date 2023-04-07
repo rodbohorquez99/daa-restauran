@@ -9,16 +9,22 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table'; 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { LoginComponent } from './login/login.component';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { MenuService } from './_services/menu/menu.service';
+import { ReservationService } from './_services/reservation/reservation.service';
+import { UserService } from './_services/user/user.service';
 
 
 @NgModule({
@@ -28,6 +34,8 @@ import { LoginComponent } from './login/login.component';
     MenuComponent,
     ReservationComponent,
     LoginComponent,
+    ReservationListComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +51,10 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
+    MatTableModule,
 
   ],
-  providers: [],
+  providers: [MenuService, ReservationService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

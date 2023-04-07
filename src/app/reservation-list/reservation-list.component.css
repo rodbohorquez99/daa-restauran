@@ -1,0 +1,9 @@
+.wrapper{
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.mat-column-people,
+.mat-column-actions {
+    text-align: center;
+}

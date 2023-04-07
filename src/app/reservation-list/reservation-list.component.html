@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <table mat-table [dataSource]="reservations" class="mat-elevation-z8">
+    
+        <!-- ReservationDate Column -->
+        <ng-container matColumnDef="reservationDate">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.reservationDate | date: 'mediumDate' }} </td>
+        </ng-container>
+    
+        <!-- ReservationSchedule Column -->
+        <ng-container matColumnDef="reservationSchedule">
+          <th mat-header-cell *matHeaderCellDef> Horario </th>
+          <td mat-cell *matCellDef="let element"> {{element.reservationSchedule + ':00 pm'}} </td>
+        </ng-container>
+    
+        <!-- People Column -->
+        <ng-container matColumnDef="people">
+          <th mat-header-cell *matHeaderCellDef> Personas </th>
+          <td mat-cell *matCellDef="let element"> {{element.people}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Cliente </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+         <!-- email Column -->
+         <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+    
+           <!-- phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Telefono </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          </ng-container>
+
+            <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="accent" (click)="editButtonClicked()">
+                <mat-icon>edit</mat-icon>
+              </button> 
+
+              <button mat-icon-button color="accent" (click)="deletedButtonClicked()">
+                <mat-icon>delete</mat-icon>
+              </button> 
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
+  
+  

@@ -1,0 +1,12 @@
+.wrapper{
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.top-actions{
+    margin: 20px 0;
+    float: right;
+}
+.mat-column-actions {
+    text-align: center;
+}
