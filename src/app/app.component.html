@@ -4,10 +4,21 @@
   <mat-toolbar-row>
     <span>Bohorquez</span>
     <span class="spacer"></span>
-    <span><a routerLink="/" mat-button >Inicio</a></span>
-    <span><a routerLink="/menu" mat-button   >Menu</a></span>
-    <span><a routerLink="/reservation" mat-button >Reservar</a></span>
-  </mat-toolbar-row>
+    <div *ngIf="this.getNavMenuType() === 'customer' ">
+      <span><a routerLink="/" mat-button >Inicio</a></span>
+      <span><a routerLink="/menu" mat-button   >Menu</a></span>
+      <span><a routerLink="/reservation" mat-button >Reservar</a></span>  
+    </div>
+
+
+<div *ngIf="this.getNavMenuType() === 'admin' "> 
+  <span><a (click)="this.logout()" mat-button>Logout</a></span>
+  <span><a routerLink="/admin/reservations" mat-button >Reservaciones</a></span>  
+  <span><a routerLink="/admin/users" mat-button   >Usuarios</a></span>
+
+
+</div>
+    </mat-toolbar-row>
 </mat-toolbar>
 
 

@@ -23,7 +23,8 @@ export class ReservationListComponent implements OnInit {
 constructor(private reservationService: ReservationService ) {}
 
 ngOnInit(): void {
-  this.reservations = this.reservationService.getReservations();
+  this.reservationService.getReservations()
+  .subscribe((reservations) => (this.reservations = reservations));
 }
 
 editButtonClicked(){
