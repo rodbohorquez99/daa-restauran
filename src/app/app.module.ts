@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table'; 
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +29,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { MenuService } from './_services/menu/menu.service';
 import { ReservationService } from './_services/reservation/reservation.service';
 import { UserService } from './_services/user/user.service';
+import { DeleteDialogConfirmComponent } from './delete-dialog-confirm/delete-dialog-confirm.component';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { UserService } from './_services/user/user.service';
     ReservationListComponent,
     UserComponent,
     UserListComponent,
+    DeleteDialogConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { UserService } from './_services/user/user.service';
     MatFormFieldModule,
     MatIconModule,
     MatTableModule,
+    MatDialogModule,
 
   ],
   providers: [MenuService, ReservationService, UserService ],

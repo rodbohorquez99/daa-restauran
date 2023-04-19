@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmacion de Borrado</h1>
+<div mat-dialog-content>
+    <p>¿Estas seguro que quieres borrar este registro?</p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close cdkFocusInitial>Cancelar</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Borrar</button>
+</div>

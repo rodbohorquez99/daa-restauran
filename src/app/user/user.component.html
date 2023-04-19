@@ -17,6 +17,18 @@
         
          </mat-form-field>  
 
+          
+         <!--Name-->
+         <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" placeholder="Escribe tu nombre" formControlName="name">
+            <mat-hint>10 a 30 caracteres</mat-hint>
+            <mat-error *ngIf="form.controls['name'].errors?.['required']">Este campo es requerido </mat-error>
+            <mat-error *ngIf="form.controls['name'].errors?.['minlength']">Por favor ingrese mas de 10 caracteres</mat-error>
+            <mat-error *ngIf="form.controls['name'].errors?.['maxlength']">Por favor ingrese menos de 30 caracteres </mat-error>
+        
+         </mat-form-field>  
+
          <!--Password-->
          <mat-form-field class="full-width">
             <mat-label>Contraseña</mat-label>
@@ -31,7 +43,7 @@
          
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-button type="reset" (click)="formCancel()">Cancelar</button>
+            <button mat-button type="reset" routerLink="/admin/users">Cancelar</button>
             <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Ingresar</button>
         </mat-card-actions>
       </mat-card>

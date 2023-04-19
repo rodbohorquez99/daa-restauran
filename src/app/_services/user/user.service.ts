@@ -21,9 +21,16 @@ export class UserService {
     .pipe(catchError(this.handleError));
   }
 
-  deleteUser(){
-    alert('Boton de borrado activado');
-  }
+  createUser(user: User): Observable<User> {
+    return this.http
+    .post<User>(environment.apiUrl + '/users', user, this.getHttpOptions())
+    .pipe(catchError(this.handleError));
+  }  
+
+  deleteUser(_id: string){
+      return this.http.delete(environment.apiUrl + '/users/' + _id, this.getHttpOptions())
+      .pipe(catchError(this.handleError));
+    }
 
   private handleError(error: HttpErrorResponse){
     if (error.status === 403){

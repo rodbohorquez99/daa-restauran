@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AuthGuard } from './_services/auth/auth.guard';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'}, 
@@ -19,6 +20,10 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'reservations', component: ReservationListComponent, canActivate: [AuthGuard]},
     { path: 'users', component: UserListComponent, canActivate: [AuthGuard]},
+    { path: 'users', children: [
+      { path: 'new', component: UserComponent, canActivate: [AuthGuard]},
+    ]}
+  
   ],
 },
 ];
