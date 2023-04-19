@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+import { AuthService } from '../_services/auth/auth.service';
 
 
 @Component({
@@ -7,21 +8,22 @@ import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private authService: AuthService){}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
-      password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(32), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,32}$/)]],
+      username: [null, [Validators.required,]],
+      password: [null, [Validators.required,]],
       });
   }
 formSubmit(form:any){
-  alert('Login exitoso\n' +  
-  JSON.stringify(form.value, null, 4)
-  );
+  this.authService.login({
+    username: this.form.value.username,
+    password: this.form.value.password,
+  })
 }
 
 formCancel(){

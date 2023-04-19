@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,7 +22,9 @@ import { MenuComponent } from './menu/menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { LoginComponent } from './login/login.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
+
 import { MenuService } from './_services/menu/menu.service';
 import { ReservationService } from './_services/reservation/reservation.service';
 import { UserService } from './_services/user/user.service';
@@ -35,6 +38,7 @@ import { UserService } from './_services/user/user.service';
     ReservationComponent,
     LoginComponent,
     ReservationListComponent,
+    UserComponent,
     UserListComponent,
   ],
   imports: [
@@ -42,6 +46,7 @@ import { UserService } from './_services/user/user.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,

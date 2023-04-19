@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="formSubmit(form)">
-    <mat-card class="login-card">
+    <mat-card class="user-card">
         <mat-card-header>
          <mat-card-title>Login</mat-card-title>
          </mat-card-header>
@@ -10,17 +10,23 @@
          <mat-form-field class="full-width">
             <mat-label>Nombre de usuario</mat-label>
             <input matInput type="text" placeholder="Escribe tu nombre de usuario" formControlName="username">
-            
+            <mat-hint>8 a 20 caracteres</mat-hint>
             <mat-error *ngIf="form.controls['username'].errors?.['required']">Este campo es requerido </mat-error>
-            
+            <mat-error *ngIf="form.controls['username'].errors?.['minlength']">Por favor ingrese mas de 8 caracteres</mat-error>
+            <mat-error *ngIf="form.controls['username'].errors?.['maxlength']">Por favor ingrese menos de 20 caracteres </mat-error>
+        
          </mat-form-field>  
 
          <!--Password-->
          <mat-form-field class="full-width">
             <mat-label>Contraseña</mat-label>
             <input matInput type="password" placeholder="Escribe tu contraseña" formControlName="password">
-           <mat-error *ngIf="form.controls['password'].errors?.['required']">Este campo es requerido </mat-error>
-           </mat-form-field>  
+            <mat-hint>8 a 32 caracteres</mat-hint>
+            <mat-error *ngIf="form.controls['password'].errors?.['required']">Este campo es requerido </mat-error>
+            <mat-error *ngIf="form.controls['password'].errors?.['minlength']">Por favor ingrese mas de 8 caracteres</mat-error>
+            <mat-error *ngIf="form.controls['password'].errors?.['maxlength']">Por favor ingrese menos de 32 caracteres </mat-error>
+            <mat-error *ngIf="form.controls['password'].errors?.['pattern']">Tu contraseña no cumple con los requerimientos</mat-error>
+         </mat-form-field>  
 
          
         </mat-card-content>
