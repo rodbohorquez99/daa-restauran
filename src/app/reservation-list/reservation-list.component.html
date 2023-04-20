@@ -41,11 +41,11 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="accent" (click)="editButtonClicked()">
+            <button mat-icon-button color="accent" (click)="editButtonClicked(element._id)">
                 <mat-icon>edit</mat-icon>
               </button> 
 
-              <button mat-icon-button color="accent" (click)="deletedButtonClicked()">
+              <button mat-icon-button color="accent" (click)="deletedButtonClicked(element._id)">
                 <mat-icon>delete</mat-icon>
               </button> 
             </td>

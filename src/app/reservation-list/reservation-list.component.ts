@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../_models/reservation.model';
 import { ReservationService } from '../_services/reservation/reservation.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogConfirmComponent } from '../delete-dialog-confirm/delete-dialog-confirm.component';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-list',
@@ -20,17 +23,31 @@ export class ReservationListComponent implements OnInit {
   'actions',
 ];
 
-constructor(private reservationService: ReservationService ) {}
+constructor(
+  private reservationService: ReservationService,
+  private dialog: MatDialog ,
+  private router: Router,
+   ) {}
 
 ngOnInit(): void {
   this.reservationService.getReservations()
   .subscribe((reservations) => (this.reservations = reservations));
 }
 
-editButtonClicked(){
-  alert('Boton de edicion activado');
+editButtonClicked(_id: string){
+  this.router.navigate(['/admin/reservations/edit/'+_id]);
 }
-deletedButtonClicked(){
-  this.reservationService.deleteReservation();
-}
+deletedButtonClicked(_id: string) {  
+  const dialogRef = this.dialog.open(DeleteDialogConfirmComponent);
+  dialogRef.afterClosed().subscribe(result => {
+   if(result === true){
+     this.reservationService.deleteReservation(_id).subscribe({
+       next: () => 
+       this.reservationService
+       .getReservations()
+       .subscribe((reservations) => (this.reservations   = reservations  ))
+     });
+   }
+  });
+ }
 }

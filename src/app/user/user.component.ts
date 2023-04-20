@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
 formSubmit(form:any){
  this.userService.createUser(form.value).subscribe({
   next: () => this.router.navigate(['/admin/users']),
- })
+ });
 }
 
 

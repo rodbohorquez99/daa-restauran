@@ -30,6 +30,7 @@ import { MenuService } from './_services/menu/menu.service';
 import { ReservationService } from './_services/reservation/reservation.service';
 import { UserService } from './_services/user/user.service';
 import { DeleteDialogConfirmComponent } from './delete-dialog-confirm/delete-dialog-confirm.component';
+import { ThankYouDialogComponent } from './thank-you-dialog/thank-you-dialog.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { DeleteDialogConfirmComponent } from './delete-dialog-confirm/delete-dia
     UserComponent,
     UserListComponent,
     DeleteDialogConfirmComponent,
+    ThankYouDialogComponent,
   ],
   imports: [
     BrowserModule,

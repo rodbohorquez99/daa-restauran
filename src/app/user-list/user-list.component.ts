@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit{
     this.userService.getUsers().subscribe((users) => (this.users = users));
   }
 
-  deletedButtonClicked(_id: string) {
+  deletedButtonClicked(_id: string) {  
    const dialogRef = this.dialog.open(DeleteDialogConfirmComponent);
    dialogRef.afterClosed().subscribe(result => {
     if(result === true){

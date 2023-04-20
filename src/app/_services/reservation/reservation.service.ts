@@ -17,9 +17,30 @@ export class ReservationService {
     .pipe(catchError(this.handleError));
   }
 
-  deleteReservation(){
-    alert('Boton de borrado activado');
+  getOneReservations(_id: string): Observable<Reservation>{
+    return this.http
+    .get<Reservation>(environment.apiUrl + '/reservations/' + _id, this.getHttpOptions())
+    .pipe(catchError(this.handleError));
   }
+
+
+
+  createReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http
+    .post<Reservation>(environment.apiUrl + '/reservations',reservation)
+    .pipe(catchError(this.handleError));
+  }  
+
+  updateReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http
+    .put<Reservation>(environment.apiUrl + '/reservations/'+ reservation._id,reservation, this.getHttpOptions())
+    .pipe(catchError(this.handleError));
+  }  
+
+  deleteReservation(_id: string){
+      return this.http.delete(environment.apiUrl + '/reservations/' + _id, this.getHttpOptions())
+      .pipe(catchError(this.handleError));
+    }
 
   private handleError(error: HttpErrorResponse){
     if (error.status === 403){

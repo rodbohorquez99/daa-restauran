@@ -19,6 +19,9 @@ const routes: Routes = [
      children: [
     { path: 'login', component: LoginComponent},
     { path: 'reservations', component: ReservationListComponent, canActivate: [AuthGuard]},
+    { path: 'reservations', children: [
+      {path: 'edit/:id',component: ReservationComponent, canActivate: [AuthGuard]},
+    ]},
     { path: 'users', component: UserListComponent, canActivate: [AuthGuard]},
     { path: 'users', children: [
       { path: 'new', component: UserComponent, canActivate: [AuthGuard]},
